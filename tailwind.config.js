@@ -19,7 +19,6 @@ export default {
             lineHeight: "1.125rem",
           },
         ],
-   
     },
   },
   }
