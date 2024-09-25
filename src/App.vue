@@ -1,7 +1,9 @@
 <template>
 <div class="flex">
-  <div class="w-1/6"><SideNav/></div>
-  <div class="w-5/6 bg-gray-1 min-h-screen">
+  <div style="transition: all 500ms ease-in-out;"
+  :class="isSideNavigationToggled ? 'w-18': 'w-1/6'"><SideNav  @toggle-side-navigation="toggleSideNavigation"/></div>
+  <div class=" bg-gray-1 min-h-screen"
+  :class="isSideNavigationToggled ? 'w-full': 'w-5/6'">
     <div class="m-6 flex justify-between">
       <JbHeader headingLevel="h2" text="Dashboard"/>
       <div class="flex items-center justify-center">
@@ -31,4 +33,13 @@ import SideNav from "../src/components/SideNav.vue";
 import JbHeader from './components/SharedComponents/JbHeader.vue';
 import JbIcon from "./components/SharedComponents/JbIcon.vue";
 import JbAvatar from "./components/SharedComponents/JbAvatar.vue";
+import {ref } from "vue"
+
+const isSideNavigationToggled = ref(false)
+
+
+const toggleSideNavigation = (isSideNavigation:boolean) => {
+  isSideNavigationToggled.value=isSideNavigation
+console.log(isSideNavigationToggled,"isSideNavigationToggled");
+}
 </script>
